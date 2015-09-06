@@ -3,7 +3,9 @@ var router = express.Router();
 var multer = require('multer')
 var upload = multer({
     dest: '/uploads/'
-})
+});
+
+var User = require('../models/user');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -25,8 +27,8 @@ router.get('/login', function(req, res, next) {
 router.post('/register', upload.single('profileimage'), function(req, res, next) {
     // Get form values
     var name = req.body.name;
-    var email = req.body.name;
-    var username = req.body.name;
+    var email = req.body.email;
+    var username = req.body.username;
     var password = req.body.password;
     var password2 = req.body.password2;
 
@@ -68,7 +70,7 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
             email: email,
             username: username,
             password: password,
-            profileImage: profileImageName
+            profileimage: profileImageName
         });
 
         // create user
