@@ -1,2 +1,2 @@
 # nodejs-nodeauth
-(incomplete)
+User authentication using Node.js
